@@ -1,10 +1,8 @@
 package com.book.mapper;
 
+import com.book.entity.Book;
 import com.book.entity.Borrow;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,7 +18,12 @@ public interface BookMapper {
     @Select("select * from borrow, student, book where borrow.bid = book.bid and student.sid = borrow.sid")
     List<Borrow> getBorrowList();
 
+    @Insert("insert into borrow(sid, bid, time) values(#{sid}, #{bid}, NOW())")
+    void addBorrow(@Param("sid") Integer sid, @Param("bid") Integer bid);
 
     @Delete("delete from borrow where id = #{id}")
     void deleteBorrow(Integer id);
+
+    @Select("select * from book")
+    List<Book> getBookList();
 }
