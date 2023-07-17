@@ -15,6 +15,8 @@
         </environment>
     </environments>
     <mappers>
-        <mapper class="com.book.mapper.UserMapper"/>
+<!--        <mapper class="com.book.mapper.UserMapper"/>-->
+<!--        <mapper class="com.book.mapper.BookMapper"/>-->
+        <package name="com.book.mapper"/>
     </mappers>
 </configuration>
