@@ -1,4 +1,4 @@
-package com.book.servlet;
+package com.book.servlet.auth;
 
 import com.book.service.UserService;
 import com.book.service.impl.UserServiceImpl;
@@ -28,6 +28,10 @@ public class LoginServlet extends HttpServlet {
             context.setVariable("failure", true);
             req.getSession().removeAttribute("login-failure");
         }
+        if (req.getSession().getAttribute("loginUser") != null) {
+            resp.sendRedirect("index");
+            return;
+        }
         ThymeleafUtil.process("login.html", context, resp.getWriter());
     }
 
@@ -37,7 +41,7 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         String remember = req.getParameter("remember-me");
         if (userService.auth(username, password, req.getSession()))
-            resp.getWriter().write("登录成功！");
+            resp.sendRedirect("index");
         else {
             req.getSession().setAttribute("login-failure", new Object());
             this.doGet(req, resp);
