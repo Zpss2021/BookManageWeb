@@ -39,7 +39,7 @@
 		<div class="side-menu-wrap">
 			<ul class="main-menu">
 				<li>
-					<a href="index">
+					<a href="index" class="active">
                             <span class="icon-menu feather-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none"
                                      stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -71,7 +71,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="students" class="active">
+					<a href="students">
                             <span class="icon-menu feather-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none"
                                      stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -94,48 +94,70 @@
 		<div class="main-content">
 			<!-- Page Title Start -->
 			<div class="row">
-				<div class="colxl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 					<div class="page-title-wrapper">
-						<div class="page-title-box ad-title-box-use">
-							<h4 class="page-title">学生列表</h4>
+						<div class="page-title-box">
+							<h4 class="page-title">录入书籍信息</h4>
+						</div>
+						<div class="breadcrumb-list">
+							<ul>
+								<li class="breadcrumb-link">
+									<a href="javascript:void(0);"><i class="fas fa-home mr-2"></i>图书管理系统</a>
+								</li>
+								<li class="breadcrumb-link active">录入书籍信息</li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- Table Start -->
-			<div class="row">
-				<!-- Styled Table Card-->
-				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-					<div class="card table-card">
-						<div class="card-header pb-0">
-							<h4>学生列表</h4>
-						</div>
-						<div class="card-body">
-							<div class="chart-holder">
-								<div class="table-responsive">
-									<table class="table table-styled mb-0">
-										<thead>
-										<tr>
-											<th>学号</th>
-											<th>姓名</th>
-											<th>性别</th>
-											<th>年级</th>
-										</tr>
-										</thead>
-										<tbody>
-										<tr th:each="student : ${studentList}">
-											<td th:text="'#' + ${student.getSid()}">#123</td>
-											<td th:text="${student.getName()}">Scott Henry</td>
-											<td th:text="${student.getGender()}">男</td>
-											<td th:text="${student.getGrade()} + '级'">2020级</td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
+			<!-- From Start -->
+			<div class="from-wrapper">
+				<div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<div class="card">
+							<div class="card-header">
+								<h4>添加借阅</h4>
+								<p class="card-desc">请在下方选择所借阅的<code>书籍</code>和对应的<code>借阅人</code>
+								</p>
+							</div>
+							<div class="card-body">
+								<form class="separate-form" method="post" action="add-book">
+									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+										<div class="row">
+											<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+												<div class="form-group">
+													<label for="member-name" class="col-form-label">书籍标题</label>
+													<input class="form-control" type="text"
+													       placeholder="书籍标题" id="member-name" name="title">
+												</div>
+											</div>
+											<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+												<div class="form-group">
+													<label for="member-email" class="col-form-label">书籍简介</label>
+													<input class="form-control" type="text"
+													       placeholder="书籍简介" id="member-email" name="desc">
+												</div>
+											</div>
+											<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+												<div class="form-group">
+													<label for="company-name" class="col-form-label">价格</label>
+													<input class="form-control" type="text" placeholder="价格"
+													       id="company-name" name="price">
+												</div>
+											</div>
+										</div>
+										<div class="form-group mb-0">
+											<button class="btn btn-primary" type="submit">提交</button>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
+
+
 				</div>
+
 			</div>
 		</div>
 	</div>

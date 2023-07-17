@@ -198,8 +198,8 @@
                                     </svg>
 							</div>
 							<div class="icon-info-text">
-								<h5 class="ad-title">Happy Customers</h5>
-								<h4 class="ad-card-title">66k</h4>
+								<h5 class="ad-title">学生数量</h5>
+								<h4 class="ad-card-title" th:text="${studentCount}">66k</h4>
 							</div>
 						</div>
 					</div>
@@ -216,8 +216,8 @@
 								</svg>
 							</div>
 							<div class="icon-info-text">
-								<h5 class="ad-title">Daily Orders</h5>
-								<h4 class="ad-card-title">15k</h4>
+								<h5 class="ad-title">书籍数量</h5>
+								<h4 class="ad-card-title" th:text="${bookCount}">15k</h4>
 							</div>
 						</div>
 					</div>
@@ -238,8 +238,8 @@
 								</svg>
 							</div>
 							<div class="icon-info-text">
-								<h5 class="ad-title">Total Sales</h5>
-								<h4 class="ad-card-title">420k</h4>
+								<h5 class="ad-title">借阅数量</h5>
+								<h4 class="ad-card-title" th:text="${borrowList.size()}">420k</h4>
 							</div>
 						</div>
 					</div>
@@ -263,8 +263,8 @@
 								</svg>
 							</div>
 							<div class="icon-info-text">
-								<h5 class="ad-title">Total Revenue</h5>
-								<h4 class="ad-card-title">10k</h4>
+								<h5 class="ad-title">总营收</h5>
+								<h4 class="ad-card-title">510k ￥</h4>
 							</div>
 						</div>
 					</div>
@@ -277,7 +277,8 @@
 						<div class="card-header">
 							<h4 class="has-btn">图书借阅列表
 								<span>
-									<a type="button" href="add-borrow" class="btn btn-primary squer-btn sm-btn">添加借阅信息</a>
+									<a type="button" href="add-borrow"
+									   class="btn btn-primary squer-btn sm-btn">添加借阅信息</a>
 								</span>
 							</h4>
 						</div>
@@ -296,7 +297,7 @@
 										</tr>
 										</thead>
 										<tbody>
-										<tr th:each="borrow : ${borrowList}" >
+										<tr th:each="borrow : ${borrowList}">
 											<td th:text="'#' + ${borrow.getBookId()}">#2033</td>
 											<td th:text="${borrow.getBookName()}">书籍名1</td>
 											<td th:text="${borrow.getTime()}">22/06/2021</td>
